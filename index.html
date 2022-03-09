@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/piano.ico" rel="shortcut icon">
+
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Open+Sans:wght@300;400;800&display=swap"
+            rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <title>virtual-piano</title>
+</head>
+
+<body>
+<header class="header">
+    <h1 class="header-title">Virtual Piano</h1>
+</header>
+<main class="main">
+    <div class="notes-wrapper">
+        <div class="notes g-clef"></div>
+        <div class="notes f-clef"></div>
+    </div>
+    <div class="btn-container">
+        <div class="instruments">
+            <button class="btn btn-instrument" data-instrument="drums"></button>
+            <button class="btn btn-instrument btn-active" data-instrument="piano"></button>
+            <button class="btn btn-instrument" data-instrument="trombone"></button>
+            <button class="btn btn-instrument" data-instrument="guitar"></button>
+        </div>
+        <div>
+            <button class="btn btn-main" id="composer">Crazy Composer</button>
+            <button class="btn btn-stop" id="stop">Stop!</button>
+        </div>
+        <div class="marks">
+            <button class="btn btn-notes btn-active">Notes</button>
+            <button class="btn btn-letters">Letters</button>
+        </div>
+    </div>
+    <div class="piano">
+        <div class="octava octava-2">
+            <div class="piano-key" data-code="Digit1" data-letter="1" data-note="c2"></div>
+            <div class="piano-key" data-code="Digit3" data-letter="3" data-note="d2"></div>
+            <div class="piano-key" data-code="Digit5" data-letter="5" data-note="e2"></div>
+            <div class="piano-key" data-code="Digit6" data-letter="6" data-note="f2"></div>
+            <div class="piano-key" data-code="Digit8" data-letter="8" data-note="g2"></div>
+            <div class="piano-key" data-code="Digit0" data-letter="0" data-note="a2"></div>
+            <div class="piano-key" data-code="Equal" data-letter="=" data-note="b2"></div>
+            <div class="keys-sharp">
+                <div class="piano-key sharp" data-code="Digit2" data-letter="2" data-note="c♯2"></div>
+                <div class="piano-key sharp" data-code="Digit4" data-letter="4" data-note="d♯2"></div>
+                <div class="piano-key sharp" data-code="Digit7" data-letter="7" data-note="f♯2"></div>
+                <div class="piano-key sharp" data-code="Digit9" data-letter="9" data-note="g♯2"></div>
+                <div class="piano-key sharp" data-code="Minus" data-letter="-" data-note="a♯2"></div>
+            </div>
+        </div>
+        <div class="octava octava-3">
+            <div class="piano-key" data-code="KeyQ" data-letter="Q" data-note="c3"></div>
+            <div class="piano-key" data-code="KeyE" data-letter="E" data-note="d3"></div>
+            <div class="piano-key" data-code="KeyT" data-letter="T" data-note="e3"></div>
+            <div class="piano-key" data-code="KeyY" data-letter="Y" data-note="f3"></div>
+            <div class="piano-key" data-code="KeyI" data-letter="I" data-note="g3"></div>
+            <div class="piano-key" data-code="KeyP" data-letter="P" data-note="a3"></div>
+            <div class="piano-key" data-code="BracketRight" data-letter="]" data-note="b3"></div>
+            <div class="keys-sharp">
+                <div class="piano-key sharp" data-code="KeyW" data-letter="W" data-note="c♯3"></div>
+                <div class="piano-key sharp" data-code="KeyR" data-letter="R" data-note="d♯3"></div>
+                <div class="piano-key sharp" data-code="KeyU" data-letter="U" data-note="f♯3"></div>
+                <div class="piano-key sharp" data-code="KeyO" data-letter="O" data-note="g♯3"></div>
+                <div class="piano-key sharp" data-code="BracketLeft" data-letter="[" data-note="a♯3"></div>
+            </div>
+        </div>
+        <div class="octava octava-4">
+            <div class="piano-key" data-code="KeyA" data-letter="A" data-note="c4"></div>
+            <div class="piano-key" data-code="KeyD" data-letter="D" data-note="d4"></div>
+            <div class="piano-key" data-code="KeyG" data-letter="G" data-note="e4"></div>
+            <div class="piano-key" data-code="KeyH" data-letter="H" data-note="f4"></div>
+            <div class="piano-key" data-code="KeyK" data-letter="K" data-note="g4"></div>
+            <div class="piano-key" data-code="Semicolon" data-letter=";" data-note="a4"></div>
+            <div class="piano-key" data-code="Backslash" data-letter="\" data-note="b4"></div>
+            <div class="keys-sharp">
+                <div class="piano-key sharp" data-code="KeyS" data-letter="S" data-note="c♯4"></div>
+                <div class="piano-key sharp" data-code="KeyF" data-letter="F" data-note="d♯4"></div>
+                <div class="piano-key sharp" data-code="KeyJ" data-letter="J" data-note="f♯4"></div>
+                <div class="piano-key sharp" data-code="KeyL" data-letter="L" data-note="g♯4"></div>
+                <div class="piano-key sharp" data-code="Quote" data-letter="''" data-note="a♯4"></div>
+            </div>
+        </div>
+        <div class="octava octava-5">
+            <div class="piano-key" data-code="ShiftLeft" data-letter="&#8679;" data-note="c5"></div>
+            <div class="piano-key" data-code="KeyX" data-letter="X" data-note="d5"></div>
+            <div class="piano-key" data-code="KeyV" data-letter="V" data-note="e5"></div>
+            <div class="piano-key" data-code="KeyB" data-letter="B" data-note="f5"></div>
+            <div class="piano-key" data-code="KeyM" data-letter="M" data-note="g5"></div>
+            <div class="piano-key" data-code="Period" data-letter="." data-note="a5"></div>
+            <div class="piano-key" data-code="ShiftRight" data-letter="&#8679;" data-note="b5"></div>
+            <div class="keys-sharp">
+                <div class="piano-key sharp" data-code="KeyZ" data-letter="Z" data-note="c♯5"></div>
+                <div class="piano-key sharp" data-code="KeyC" data-letter="C" data-note="d♯5"></div>
+                <div class="piano-key sharp" data-code="KeyN" data-letter="N" data-note="f♯5"></div>
+                <div class="piano-key sharp" data-code="Comma" data-letter="," data-note="g♯5"></div>
+                <div class="piano-key sharp" data-code="Slash" data-letter="/" data-note="a♯5"></div>
+            </div>
+        </div>
+    </div>
+    <button class="fullscreen"></button>
+</main>
+<footer class="footer">
+    <div class="footer-container">
+        <a class="github" href="https://github.com/X-creator" target="_blank" rel="noopener noreferrer">X-creator</a>
+        <a class="rss" href="https://rs.school/js/" target="_blank" rel="noopener noreferrer">
+            <span class="rss-year">'21</span>
+        </a>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+
+</html>

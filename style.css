@@ -1,0 +1,470 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+a:focus {
+    outline: 0;
+}
+
+body {
+    background-color: #313940;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    min-width: 800px;
+}
+
+.header {
+    border-bottom: 1px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left, #38495a, #a2abb3, #38495a);
+    text-align: center;
+    width: 100%;
+}
+
+.header-title {
+    color: #fff;
+    font-weight: 300;
+    line-height: 60px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 auto;
+    max-width: 1160px;
+    min-height: calc(100vh - 110px);
+    padding: 55px 20px 100px;
+    width: 100%;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 83px;
+    padding: 0 20px;
+}
+
+.instruments {
+    display: flex;
+    justify-content: space-between;
+    width: 215px;
+}
+
+.btn {
+    background-color: #454c53;
+    border: 0;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    height: 37px;
+    outline: 0;
+    padding: 0 10px;
+    transition: 0.3s;
+    width: 105px;
+}
+
+.btn:not(.btn-active):hover {
+    background-color: #515961;
+}
+
+.btn:active {
+    background-color: #00c9b7;
+}
+
+.btn-active {
+    background-color: #00b4a4;
+}
+
+.btn-active:hover {
+    background-color: #00c9b7;
+}
+
+.btn-main {
+    background-color: #00bcd4;
+    height: 37px;
+    width: 167px;
+}
+
+.btn-main:hover {
+    background-color: #4caf50;
+}
+
+.btn-main.btn-active {
+    background-color: #ff9800;
+}
+
+
+.btn-stop {
+    background-color: #ad728b;
+    height: 37px;
+    width: 85px;
+}
+
+.btn-instrument {
+    background-color: #ad728b;
+    border-radius: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+
+.btn-instrument:nth-child(1) {
+    background: url("assets/svg/drums.svg") #607d8bc7 center / cover no-repeat;
+}
+
+.btn-instrument:nth-child(2) {
+    background: url(assets/svg/piano.svg) #607d8bc7 center/contain no-repeat;
+}
+
+.btn-instrument:nth-child(3) {
+    background: url(assets/svg/trombone.svg) #607d8bc7 center/contain no-repeat;
+
+}
+
+.btn-instrument:nth-child(4) {
+    background: url(assets/svg/guitar.svg) #607d8bc7 12px -12px no-repeat;
+    background-size: 22px;
+}
+
+.btn-instrument.btn-active {
+    background-color: #adb;
+}
+
+.piano {
+    display: flex;
+    margin: 0 auto;
+}
+
+.octava {
+    display: flex;
+    height: 220px;
+    justify-content: space-between;
+    position: relative;
+    width: 280px;
+}
+
+
+.piano-key {
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid #313940;
+    border-radius: 0 0 6px 6px;
+    position: relative;
+    cursor: pointer;
+    height: 220px;
+    transition: 0.3s;
+    width: 40px;
+}
+
+.piano-key:hover {
+    background-color: #fff;
+}
+
+.keys-sharp {
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    left: 23px;
+    pointer-events: none;
+    position: absolute;
+    right: 23px;
+    top: 0;
+}
+
+.piano-key.sharp {
+    background-color: #8a8c8e;
+    border: 0;
+    border-radius: 0 0 7px 6px;
+    box-shadow: inset 21px -10px 6px #262729f0;
+    height: 135px;
+    pointer-events: auto;
+    top: 0;
+    transform-origin: center top;
+    width: 25px;
+    z-index: 3;
+}
+
+.piano-key.sharp:hover {
+    background: #262729f0;
+}
+
+.piano-key.sharp:nth-child(2) {
+    margin-left: 2px;
+    margin-right: 30px;
+}
+
+.piano-key.piano-key-active {
+    background-color: #fff;
+}
+
+.piano-key-active.piano-key,
+.piano-key-active.sharp {
+    transform: scale(0.97);
+}
+
+.piano-key-active.sharp {
+    background: #262729f0;
+    border: 2.5px solid black;
+}
+
+.piano-key::before {
+    bottom: -45px;
+    color: #a2abb3;
+    content: attr(data-note);
+    font-size: 22px;
+    height: 40px;
+    line-height: 40px;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    transition: 0.3s;
+    width: 40px;
+}
+
+.piano-key:hover::before {
+    color: #fff;
+}
+
+.piano-key.sharp::before {
+    bottom: 155px;
+}
+
+.piano-key.sharp::after {
+    background-color: #ffffff45;
+    bottom: -119px;
+    content: '';
+    display: block;
+    height: 1px;
+    left: 5px;
+    position: relative;
+    width: 14px;
+}
+
+.piano-key-active.sharp::after {
+    display: none;
+}
+
+.piano-key.letter::before {
+    content: attr(data-letter);
+}
+
+.piano-key.piano-key-active::before {
+    color: #00b4a4;
+}
+
+.fullscreen {
+    background-color: rgba(255, 255, 255, 0.3);
+    background-image: url("assets/svg/fullscreen-open.svg");
+    background-size: contain;
+    border: 0;
+    cursor: pointer;
+    position: fixed;
+    height: 40px;
+    outline: 0;
+    right: 40px;
+    top: 120px;
+    transition: 0.3s;
+    width: 40px;
+}
+
+.fullscreen:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+:-webkit-full-screen .fullscreen {
+    background-image: url("assets/svg/fullscreen-exit.svg");
+}
+
+.footer {
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left, #38495a, #a2abb3, #38495a);
+    border-top: 1px solid;
+}
+
+.footer-container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1140px;
+    padding: 0 15px;
+    width: 100%;
+}
+
+.github {
+    background-image: url("assets/svg/github.svg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 35px;
+    color: #cbd5de;
+    display: block;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 45px;
+    transition: 0.3s;
+    width: 120px;
+}
+
+.github:hover {
+    color: #fff;
+}
+
+.rss {
+    background-image: url("assets/svg/rss.svg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    font-family: "Open Sans", sans-serif;
+    height: 32px;
+    padding-right: 111px;
+    position: relative;
+    width: 86px;
+}
+
+.rss-year {
+    bottom: 0;
+    color: #cbd5de;
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    line-height: 0.9;
+    position: absolute;
+    right: 0;
+    transition: 0.3s;
+}
+
+.rss:hover .rss-year {
+    letter-spacing: 0;
+    right: -5px;
+}
+
+@media (max-width: 1200px) {
+    .fullscreen {
+        height: 40px;
+        right: 20px;
+        top: 10px;
+        width: 40px;
+    }
+
+    .octava-2 {
+        display: none;
+    }
+}
+
+@media (max-width: 878px) {
+    .octava-3,
+    .fullscreen,
+    .f-clef,
+    .g-clef::after {
+        display: none;
+    }
+}
+
+
+.notes-wrapper {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 260px;
+    justify-content: center;
+    margin: 0 auto 55px;
+    max-width: 940px;
+    padding: 0 20px;
+    position: relative;
+    width: 100%;
+}
+
+.notes {
+    background-color: white;
+    border: 2px solid black;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    box-shadow: inset 0 10px white, inset 0 12px black, inset 0 22px white, inset 0 24px black, inset 0 34px white, inset 0 36px black;
+    height: 50px;
+    margin: 25px 0;
+}
+
+.g-clef::before {
+    bottom: 15px;
+    content: url(assets/svg/g.svg);
+    position: relative;
+}
+
+.g-clef::after {
+    background-color: black;
+    bottom: 105px;
+    content: '';
+    height: 50px;
+    position: absolute;
+    right: 20px;
+    width: 1px;
+}
+
+.f-clef::before {
+    bottom: 22px;
+    content: url(assets/svg/f.svg);
+    left: -10px;
+    position: relative;
+}
+
+.f-clef::after {
+    bottom: 50px;
+    content: url(assets/svg/accolade.svg);
+    left: 2px;
+    position: absolute;
+}
+
+.note {
+    bottom: 22px;
+    display: inline-block;
+    margin: 0 15px;
+    position: relative;
+}
+
+.note.sharp::before {
+    bottom: -4px;
+    content: '\0023';
+    display: block;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: bold;
+    left: -18px;
+    position: absolute;
+}
+
+.note.ledger-in::after,
+.note.ledger-above::after,
+.note.ledger-below::after,
+.note.low::after {
+    background-color: black;
+    bottom: 10px;
+    content: '';
+    height: 2px;
+    left: -4px;
+    position: absolute;
+    width: 23px;
+}
+
+.note.ledger-above::after {
+    bottom: 4px;
+}
+
+.note.ledger-below::after {
+    bottom: 15px;
+}
+
+.note.low::after {
+    background-color: transparent;
+    border: 2px solid black;
+    border-left: none;
+    border-right: none;
+    height: 8px;
+}
